@@ -96,7 +96,7 @@ are up to learning language patterns from Wikipedia. Of course, this
 does not immediately guarantee that the same training approach will
 directly translate to a full-sized dataset. Specific parameters, such as
 learning rate, may need to be adjusted.
-
+ -->
 
 ### Tools and libraries
 
@@ -118,8 +118,7 @@ learning rate, may need to be adjusted.
 -   **English Wikipedia**: A commonly used data source for language
     modeling since it is a freely available knowledge base covering many
     topics.
-
- -->
+    
 
 ## Understanding Masked Language Models
 
