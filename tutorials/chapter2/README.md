@@ -9,7 +9,6 @@ understand how they produce their outputs. Once we've demonstrated how
 LLMs can do what they do, we will run an abbreviated training loop to
 provide a glimpse into the training process.
 
-::: svgraybox
 **Goals:**
 
 -   Inspect the inputs and outputs of a LLM, including the tokenizer.
@@ -20,7 +19,7 @@ provide a glimpse into the training process.
 -   Illustrate on a small scale how to train a LLM from scratch.
 
 -   Validate that a training loop is working as intended.
-:::
+
 
 ## Experimental Design
 
@@ -45,12 +44,11 @@ only includes a training loop for GPT-2 and not for a masked model, but
 the reader could easily extend this experiment to other LLMs if they so
 desire.
 
-## Results and Analysis
+<!-- ## Results and Analysis
 
 In our LLM pre-training experiment, the training loss dropped quickly
 while the validation loss remained high. This behavior is depicted in
-Fig.[1](#fig:pretraining_loss){reference-type="ref"
-reference="fig:pretraining_loss"}, and we expect it when the model
+Fig. 1, and we expect it when the model
 overfits the training data. It would take far more documents and
 training steps for the model to capture enough information to generalize
 well to the validation data, which is unsurprising since the number of
@@ -58,8 +56,8 @@ viable token sequences in English is enormous.
 
 ![The loss curve obtained as GPT-2 learns the contents of a minimal set
 of Wikipedia
-documents.](chapter2/images/pretraining_loss.png){#fig:pretraining_loss
-width="80%"}
+documents.](images/pretraining_loss.png)
+*Figure 1: The loss curve obtained as GPT-2 learns the contents of a minimal set of Wikipedia documents.*
 
 Although the model hasn't been adequately trained to perform well on the
 validation data, we can still see that it has learned a lot from the
@@ -99,6 +97,7 @@ does not immediately guarantee that the same training approach will
 directly translate to a full-sized dataset. Specific parameters, such as
 learning rate, may need to be adjusted.
 
+
 ### Tools and libraries
 
 -   **PyTorch**: An open-source machine learning library for Python that
@@ -120,13 +119,17 @@ learning rate, may need to be adjusted.
     modeling since it is a freely available knowledge base covering many
     topics.
 
+ -->
+
 ## Understanding Masked Language Models
 
 The first model we will look at is BERT, trained with masked tokens. For
 example, the text below masks the word \"box\" from a well-known movie
 quote.
 
-        text = "Life is like a [MASK] of chocolates."
+```
+text = "Life is like a [MASK] of chocolates."
+```
 
 We'll now see how BERT can predict the missing word. We can use
 HuggingFace to load a copy of the pre-trained model and tokenizer.
@@ -254,8 +257,9 @@ complete and then pass them through the tokenizer.
 
 ``` {.python language="Python" caption="Preparing Model Inputs with GPT2Tokenizer"}
 text = "Swimming at the beach is"
-    model_inputs = tokenizer(text, return_tensors='pt')
-    print(model_inputs)
+model_inputs = tokenizer(text, return_tensors='pt')
+
+print(model_inputs)
 # Output:
 # {'input_ids': tensor([[10462, 27428, 379, 262, 10481, 318]]), 'attention_mask': tensor([[1, 1, 1, 1, 1, 1]])}
 ```
@@ -276,9 +280,10 @@ be used to inject varying degrees of randomness into generative models.
 
 ``` {.python language="Python" caption="Generating Next Token Prediction with GPT-2"}
 output = model(**model_inputs)
-    next_token_logits = output.logits[:, -1, :]
-    next_token = torch.argmax(next_token_logits, dim=-1)
-    print(next_token)
+next_token_logits = output.logits[:, -1, :]
+next_token = torch.argmax(next_token_logits, dim=-1)
+
+print(next_token)
 # Output:
 # tensor([257])
 ```
@@ -289,9 +294,9 @@ need to extend the attention mask to the same length.
 
 ``` {.python language="Python" caption="Updating Model Inputs and Decoding with GPT-2 Tokenizer"}
 model_inputs["input_ids"] = torch.cat([model_inputs["input_ids"], next_token[:, None]], dim=-1)
-    model_inputs["attention_mask"] = torch.cat([model_inputs["attention_mask"], torch.tensor([[1]])], dim=-1)
+model_inputs["attention_mask"] = torch.cat([model_inputs["attention_mask"], torch.tensor([[1]])], dim=-1)
 
-    print(tokenizer.decode(model_inputs['input_ids'][0]))
+print(tokenizer.decode(model_inputs['input_ids'][0]))
 # Output:
 # Swimming at the beach is a
 ```
@@ -430,6 +435,43 @@ trainer = Trainer(
 
 trainer.train()
 ```
+
+![The loss curve obtained as GPT-2 learns the contents of a minimal set
+of Wikipedia
+documents.](images/pretraining_loss.png)
+*Figure 1: The loss curve obtained as GPT-2 learns the contents of a minimal set of Wikipedia documents.*
+
+In Fig. 1, the training loss dropped rather quickly while the validation loss remained high. This is the behavior we expect when the model overfits the training data. It would take far more documents and training steps for the model to capture enough information to generalize well to the validation data, which is unsurprising since the number of viable token sequences in English is enormous.
+
+Although the model hasn't been adequately trained to perform well on the validation data, we can still see that it has learned a lot from the training data. To verify, we'll test on a training example.
+
+``` {.python language="Python" caption={Accessing Dataset Text Example}
+print(raw_datasets["train"][0]["text"])
+# Output:
+# William Edward Whitehouse (20 May 1859 – 12 January 1935) was an English cellist.
+
+# Career
+# He studied for one year with Alfredo Piatti, for whom he deputised (taking his place in concerts when called upon), and was his favourite pupil. He went on to teach at the Royal Academy of Music, Royal College of Music and King's College, Cambridge...
+```
+
+Given the first few tokens, we'll then confirm that our model can complete this text for us.
+
+``` {.python language="Python" caption={Generating Text with Model}
+text = "William Edward Whitehouse (20 May 1859 – 12 January 1935) was an English cellist.\n\nCareer\nHe studied for one year with"
+
+model_inputs = tokenizer(text, return_tensors='pt')
+output_generate = model.generate(**model_inputs, max_new_tokens=5)
+sequence = tokenizer.decode(output_generate[0])
+print(sequence)
+# Output:
+# William Edward Whitehouse (20 May 1859 – 12 January 1935) was an English cellist.
+# 
+# Career
+# He studied for one year with Alfredo Piatti,
+```
+
+In this case, the model correctly identified Alfredo Piatti, showing it has memorized this information from repeated exposure to a specific Wikipedia article. This gives us confidence that our tokenizer and model are up to learning language patterns from Wikipedia. Of course, this does not immediately guarantee that the same training approach will directly translate to a full-sized dataset. Specific parameters, such as learning rate, may need to be adjusted.
+
 
 ## Conclusion
 
