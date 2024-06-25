@@ -323,8 +323,7 @@ the zero-shot performance of the prompt.
 
 ![Graphical representation of the data from Table 2, showing the comparative
 accuracy of pre-train/fine tuning and prompt-based learning as a function of
-training examples for our text classification exercise.]
-(images/tc_learning_curve.png)
+training examples for our text classification exercise.](images/tc_learning_curve.png)
 *Figure 1: Graphical representation of the data from Table 2, showing the
 comparative accuracy of pre-train/fine tuning and prompt-based learning as
 a function of training examples for our text classification exercise.*
