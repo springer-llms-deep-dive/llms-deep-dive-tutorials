@@ -40,7 +40,9 @@ two tuning approaches for each NLP task and discuss the implications.
 -   Plot learning curves to illustrate the strong performance of prompts
     in few-shot settings.
 
-## Tools and libraries
+## Experimental Design
+
+### Tools and Libraries
 
 -   **PyTorch**: PyTorch is an open-source machine learning library for
     Python that provides a flexible and efficient platform for building,
@@ -59,7 +61,7 @@ two tuning approaches for each NLP task and discuss the implications.
     classification problems. We will fine-tune the `bert-base-cased`
     variant for our experiments. 
 
-## Datasets {#sec:datasets}
+### Datasets
 
 -   **SST-2**: A sentiment analysis data set widely used as a text
     classification benchmark [@wang2019glue]. It consists of sentences
@@ -630,7 +632,7 @@ showing the comparative F1-score performance of pretrain/fine tuning and
 prompt-based learning as a function of training examples for our named
 entity recognition
 exercise.](images/ner_learning_curve.png)
-*Figure 4: Graphical representation of the data from Table 4,
+*Figure 2: Graphical representation of the data from Table 4,
 showing the comparative F1-score performance of pretrain/fine tuning and
 prompt-based learning as a function of training examples for our named
 entity recognition

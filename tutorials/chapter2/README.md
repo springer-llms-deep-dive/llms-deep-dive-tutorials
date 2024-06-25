@@ -102,7 +102,7 @@ learning rate, may need to be adjusted.
 
 -   **PyTorch**: An open-source machine learning library for Python that
     provides a flexible and efficient platform for building, training,
-    and evaluating various deep neural networks. [@NEURIPS2019_9015]
+    and evaluating various deep neural networks. 
 
 -   **HuggingFace**: Provides the pre-trained models and data needed for
     the experiments and a concise training loop.
