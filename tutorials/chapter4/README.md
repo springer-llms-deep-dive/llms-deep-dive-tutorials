@@ -1,4 +1,4 @@
-# Tutorial: Fine-tuning LLMs in a resource-constrained setting
+# Tutorial: Fine-tuning LLMs in a Resource-Constrained Setting
 
 ## Overview
 
@@ -236,7 +236,7 @@ fine-tuning has taught the model to generate \<END_OF_SECOND_SENTENCE\>
 tokens but still lacks the nuanced understanding of English required to
 generate summaries.
 
-## LLama 2-7B
+## LLama-2-7B
 
 Lacking additional data, we can try to improve by moving to a larger
 LLM, whose better knowledge of the language could help improve its
@@ -268,13 +268,13 @@ example:
 ### Conversation: 
 Customer: Stuck at Staines waiting for a Reading train, why no information or advice being passed on to passengers on the platform? @SW_Help 
 Agent: Hi, due to electric supply problems trains are not running to 
-Reading. ^BK 
+Reading.  
 Customer: I know the reason, but I don't think it unreasonable to have 
 announcements or staff giving updates...
 ...
 Agent: Hi Adrian, we have just been informed by @115793 engineers that the
 line is open again and trains can now run between Wokingham and Reading.
-Sorry for the confusion. ^MB 
+Sorry for the confusion.  
  
 ### Summary: 
 The customer asked why there were no announcements or updates on the platform.
@@ -290,7 +290,7 @@ descriptions but a length greater than two sentences. Overall, base
 Llama-2 scored 25.5/150 on the test set. Only four summaries were two
 sentences long, so the additional 21.5 points come from the accuracy of
 the summaries -- this is an impressive improvement over DistilGPT2,
-which only reached that scoring level once it had been fine-tuned with
+which could produce nothing of value until it had been fine-tuned with
 the training set. However, the failure modes are pretty bad and look
 nothing like what we want. It is clear that Llama-2 has significant
 summarization capabilities without tuning, but you have to get lucky --
