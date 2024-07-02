@@ -52,8 +52,8 @@ of approximately 13,000 training images and 500 test and validation
 images. Two examples are shown in Fig. 1.
 
 <p float="left">
-  <img src="images/baseball030.png" width="100" />
-  <img src="images/football022.png" width="100" /> 
+  <img src="images/baseball030.png" width="224" />
+  <img src="images/football022.png" width="224" /> 
 </p>
 
 *Figure 1: Two examples from the 100SIC dataset.*
@@ -114,8 +114,8 @@ Answer:
 \...and test the zero-shot performance of the model against two samples.
 
 <p float="left">
-  <img src="images/cricket2.png" width="100" />
-  <img src="images/tug_of_war4.png" width="100" /> 
+  <img src="images/cricket2.png" width="224" />
+  <img src="images/tug_of_war4.png" width="224" /> 
 </p>
 
 *Figure 2: Inference on two more examples from the 100SIC dataset.*
@@ -204,6 +204,7 @@ American football and the following prompt template:
 
 ![An image from the 100 Sports Image Classification
 dataset.](images/football029.png)
+
 *Figure 3: An example from the 100SIC dataset.*
 
 ``` {#code:sport_caption_prompt . language="" caption="Sport captioning prompt" label="code:sport_caption_prompt"}
