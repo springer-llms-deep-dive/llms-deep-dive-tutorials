@@ -15,7 +15,7 @@ our plan is shown in Fig. 1.
 and data.](images/rlhf-tutorial.png)
 *Figure 1: An easily accessible demonstration of RLHF using open source models
 and data.*
-F
+
 The methods outlined here reflect key advancements that brought
 generative AI into the mainstream and stimulated massive investment.
 Before RLHF came into prominence with results such as InstructGPT,
