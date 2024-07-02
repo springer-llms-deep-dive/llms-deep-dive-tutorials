@@ -85,8 +85,8 @@ for index filtering or keyword searches. Next we choose a chunking
 strategy and an embedding model to generate our vector index.
 
 ``` {.python language="Python" caption="\"Model parameters\""}
-from some_text_processing_library import SentenceSplitter
-from some_embedding_library import HuggingFaceEmbedding
+from llama_index.core.node_parser import SentenceSplitter
+from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 
 text_chunker = SentenceSplitter(chunk_size=128, chunk_overlap=8)
 embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
@@ -101,9 +101,9 @@ We then use the text chunker to split our documents into notes and
 create a vector index:
 
 ``` {.python language="Python" caption="\"Generate vector-index\""}
-from text_chunker_module import SentenceSplitter  # Assuming the module name
-from embedding_model_module import HuggingFaceEmbedding  # Assuming the module name
-from vector_store_module import VectorStoreIndex  # Assuming the module name
+from llama_index.core.node_parser import SentenceSplitter
+from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+from llama_index.core import VectorStoreIndex 
 
 # Model parameters setup
 text_chunker = SentenceSplitter(chunk_size=128, chunk_overlap=8)
