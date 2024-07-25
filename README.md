@@ -22,7 +22,7 @@ Within the eight chapter folders, you will find nine total tutorials (chapter 3 
 
 Notebooks can be run on local GPU resources or through booting a Google Colab instance on the imported notebook. 
 
-Because our tutorials were designed to run on these ephemeral Colab instances, they are self-contained and do not a separate `requirements.txt` pip file for dependencies -- necessary installations and downloads are completed at the top of each notebook. 
+Because our tutorials were designed to run on these ephemeral Colab instances, they are self-contained and do not need a separate `requirements.txt` pip file for dependencies -- necessary installations and downloads are completed at the top of each notebook. 
 
 The tuturials were tested and run in Python 3.10. Where appropriate, we have hard-coded package versions to avoid incompatability issues. 
 
