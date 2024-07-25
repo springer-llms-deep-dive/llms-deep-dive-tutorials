@@ -28,7 +28,7 @@ The tuturials were tested and run in Python 3.10. Where appropriate, we have har
 
 ## Prerequisites
 
-You will need API tokens from three different websites in order to smoothly run every tutorial notebook.  To smooth the process, here is a list of accounts that will be needed to run each of the notebooks.
+You will need API tokens from three different websites in order to smoothly run every tutorial notebook. Here is a list of accounts that will be needed to run each of the notebooks.
 
 0. [Google Colab](https://colab.research.google.com/)
 
