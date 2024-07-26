@@ -2,7 +2,8 @@
 
 ## Overview
 
-This tutorial will demonstrate how RLHF can be used to fine-tune a
+This tutorial will demonstrate how reinforcement learning with human
+feedback (RLHF) can be used to fine-tune a
 generative language model. We use a set of prompts that reflect various
 ways a human might interact with a chatbot and a separate reward model
 that rates the quality of the generated answers. The reward model
