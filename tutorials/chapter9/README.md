@@ -12,7 +12,8 @@ test the out-of-the-box capabilities of a SOTA MMLLM on image labeling
 and captioning and explore ways to improve performance with fine-tuning
 and few-shot prompting.
 
-We set up two experiments with the same dataset to accomplish this goal.
+We set up two experiments using a dataset of images from sporting events
+to accomplish this goal.
 First, we will ask the model to identify which sport is in each image,
 both in a zero-shot framework and in a fine-tuned framework, and compare
 the results. Second, we will ask the model to write simple captions of

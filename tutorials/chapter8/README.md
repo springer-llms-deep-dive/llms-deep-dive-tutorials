@@ -21,7 +21,7 @@ deploying an actual production-grade inference capability.
     be useful.
 
 -   Observe whether any new characteristics of our models are revealed
-    through this process which might impact whether they are fit for
+    through this process, which might impact whether they are fit for use.
 
 ## Experimental Design
 
