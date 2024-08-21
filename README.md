@@ -4,7 +4,9 @@ This repository contains expanded tutorials and python notebooks to accompany th
 
 <img src="images/book_cover.jpg" alt="drawing" width="300"/> 
 
-[<img src="images/amazon-badge.png" alt="Available on amazon.com" width="150"/>](https://www.amazon.com/Large-Language-Models-Bridging-Practice/dp/3031656466/)
+<br>
+
+[<img src="images/amazon-badge.png" alt="Available on amazon.com" width="150"/>](https://www.amazon.com/Large-Language-Models-Bridging-Practice/dp/3031656466/)  &nbsp; [<img src="images/springer-badge.png" alt="Available on Springer Link" width="147"/>](https://link.springer.com/book/10.1007/978-3-031-65647-7)
 
 ## About this repository
 
