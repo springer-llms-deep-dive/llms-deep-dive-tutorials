@@ -1,4 +1,4 @@
-# Tutorial: Approaches to prompt engineering {#sec:ch4_tut}
+# Tutorial: Approaches to prompt engineering
 
 ## Overview
 
