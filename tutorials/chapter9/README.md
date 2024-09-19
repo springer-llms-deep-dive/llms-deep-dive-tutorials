@@ -280,7 +280,7 @@ flickr30k images identified as sports. The descriptions are terse and
 straight-forward, for example:
 "`There are two boys on a basketball court and one is holding a basketball.`"
 
-Using this supplmenetary dataset, we emply the same QLoRA approach
+Using this supplemenetary dataset, we employ the same QLoRA approach
 described above and fine-tune the base IDEFICS model with roughly 1600
 samples using the same template from the zero-shot example. Once the
 training is complete, we can generate a caption for our test figure
